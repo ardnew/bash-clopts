@@ -58,4 +58,6 @@ clopts() {
 	#   [[ -z ${opt_x++} ]] || echo "flag -x exists (possibly empty): [${opt_x}]"
 	[[ ${#arg[@]} -gt 0 ]] && 
 		printf -- '%s\n' "${arg[@]}"
+		
+	return 0
 }
