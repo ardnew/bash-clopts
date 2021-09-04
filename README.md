@@ -8,7 +8,7 @@ Calling function `clopts` with the arguments you want to parse will potentially 
 1. For each single-letter option `-X` found in the given arguments, an environment variable named `opt_X` is exported, and its value is set to the given non-option argument immediately following it (if any). If there is no following argument, or it is also a single-letter option, then its value is set to `1`. Option parsing stops at first occurrence of `--`. 
 2. All arguments that are not single-letter options, or arguments to these options, are printed verbatim to stdout.
 
-You can test if an option was found in the given arguments with the something like the following, which correctly handles the case where an empty string was given as argument to the option: 
+You can test if an option was found in the given arguments with something like the following, which correctly handles the case where an empty string was given as argument to the option: 
 
 ```bash
 if [[ ! -z ${opt_X++} ]]; then
