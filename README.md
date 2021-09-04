@@ -29,12 +29,14 @@ bash: declare: opt_a: not found
 ```
 
 ```bash
-$ clopts -x foo bar -y -- -z baz
-bar -z baz
+$ clopts -x "" foo -y bar -z "" -- -a baz
+foo
+-a
+baz
 $ declare -p opt_x opt_y opt_z opt_a
-declare -- opt_x="foo"
-declare -- opt_y="1"
-bash: declare: opt_z: not found
+declare -- opt_x=""
+declare -- opt_y="bar"
+declare -- opt_z=""
 bash: declare: opt_a: not found
 ```
 
