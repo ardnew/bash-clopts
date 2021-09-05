@@ -12,8 +12,8 @@ You can test if an option was found in the given arguments with something like t
 
 ```bash
 if [[ -n ${opt_X+?} ]]; then
-  # flag -X was given, possibly with or without an argument (which may be empty)
-  echo "opt_X found = ${opt_X}"
+  # flag was given, possibly with or without an argument (which may be an empty string)
+  echo "flag -X = ${opt_X}"
 fi
 ```
 
