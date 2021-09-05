@@ -12,7 +12,7 @@ clopts() {
 	while [[ ${#} -gt 0 ]]; do
 		case "${1}" in
 
-			-[a-zA-Z])
+			-[a-zA-Z0-9])
 				# Create a nameref to a variable whose name matches current token, but
 				# prepended with "opt_".
 				local -n opt="opt_${1#-}"
@@ -21,7 +21,7 @@ clopts() {
 				# another option. In both cases, the option accepts no argument.
 				#   - This was the last token if no tokens remain, or if the next token
 				#     is exactly equal to the string '--'.
-				if [[ ${#} -eq 0 ]] || [[ "${1}" =~ ^-[a-zA-Z\-]$ ]]; then
+				if [[ ${#} -eq 0 ]] || [[ "${1}" =~ ^-[a-zA-Z0-9\-]$ ]]; then
 					# Set the option flag (which accept no arguments) value to 1.
 					opt=1
 				else
@@ -55,7 +55,7 @@ clopts() {
 
 	# Output the unprocessed args. The parsed flags are set in the caller's env,
 	# so if they want a flag, test if it exists and use it: 
-	#   [[ -z ${opt_x++} ]] || echo "flag -x exists (possibly empty): [${opt_x}]"
+	#   [[ ! -z ${opt_X+?} ]] && echo "flag -X exists (possibly empty): [${opt_X}]"
 	[[ ${#arg[@]} -gt 0 ]] && 
 		printf -- '%s\n' "${arg[@]}"
 		
