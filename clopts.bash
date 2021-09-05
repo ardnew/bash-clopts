@@ -55,7 +55,7 @@ clopts() {
 
 	# Output the unprocessed args. The parsed flags are set in the caller's env,
 	# so if they want a flag, test if it exists and use it: 
-	#   [[ ! -z ${opt_X+?} ]] && echo "flag -X exists (possibly empty): [${opt_X}]"
+	#   [[ -n ${opt_X+?} ]] && echo "flag -X exists (possibly empty): [${opt_X}]"
 	[[ ${#arg[@]} -gt 0 ]] && 
 		printf -- '%s\n' "${arg[@]}"
 		
