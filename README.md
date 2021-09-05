@@ -11,7 +11,7 @@ Calling function `clopts` with the arguments you want to parse will potentially 
 You can test if an option was found in the given arguments with something like the following, which correctly handles the case where an empty string was given as argument to the option: 
 
 ```bash
-if [[ ! -z ${opt_X++} ]]; then
+if [[ -n ${opt_X+?} ]]; then
   # flag -X was given, possibly with or without an argument (which may be empty)
   echo "opt_X found = ${opt_X}"
 fi
